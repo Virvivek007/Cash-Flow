@@ -1,0 +1,231 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cash-Flow — Salary &amp; Expense Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sheet">
+
+  <header class="masthead">
+    <h1>Cash&#8209;Flow</h1>
+    <p class="tagline">a running ledger of what comes in and what goes out</p>
+  </header>
+
+  <section class="salary-block">
+    <form id="salary-form" class="inline-form">
+      <label for="salary-input">Total Salary</label>
+      <div class="field-row">
+        <span class="prefix">₹</span>
+        <input type="number" id="salary-input" placeholder="0.00" min="0" step="0.01" autocomplete="off">
+        <button type="submit">Set salary</button>
+      </div>
+      <p class="error" id="salary-error" hidden></p>
+    </form>
+  </section>
+
+  <section class="summary">
+    <div class="summary-cell">
+      <span class="summary-label">Salary</span>
+      <span class="summary-value" id="summary-salary">₹0.00</span>
+    </div>
+    <div class="summary-cell">
+      <span class="summary-label">Expenses</span>
+      <span class="summary-value" id="summary-expenses">₹0.00</span>
+    </div>
+    <div class="summary-cell balance-cell">
+      <span class="summary-label">Remaining balance</span>
+      <span class="summary-value" id="summary-balance">₹0.00</span>
+    </div>
+  </section>
+
+  <div class="alert-banner" id="alert-banner" hidden>
+    ⚠ Balance has dropped below 10% of your salary.
+  </div>
+
+  <section class="entry-block">
+    <form id="expense-form" class="inline-form">
+      <label>Log an expense</label>
+      <div class="field-row wrap">
+        <input type="text" id="expense-name" placeholder="Expense name" autocomplete="off">
+        <span class="prefix">₹</span>
+        <input type="number" id="expense-amount" placeholder="0.00" min="0" step="0.01" autocomplete="off">
+        <button type="submit">Add entry</button>
+      </div>
+      <p class="error" id="expense-error" hidden></p>
+    </form>
+  </section>
+
+  <section class="ledger-body">
+    <div class="ledger-col">
+      <h2>Entries</h2>
+      <ul id="expense-list" class="expense-list">
+        <li class="empty-state" id="empty-state">No expenses logged yet.</li>
+      </ul>
+    </div>
+
+    <div class="ledger-col chart-col">
+      <h2>Balance vs. Expenses</h2>
+      <div class="chart-wrap">
+        <canvas id="balance-chart" width="260" height="260"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot-note">
+    <span id="footer-note">Nothing saved yet — figures persist automatically once you start.</span>
+  </footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script>
+  if (typeof Chart === "undefined") {
+    document.write('<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"><\/script>');
+  }
+</script>
+<script src="script.js"></script>
+</body>
+</html>
+=======
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cash-Flow — Salary &amp; Expense Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="sheet">
+      <header class="masthead">
+        <h1>Cash&#8209;Flow</h1>
+        <p class="tagline">
+          a running ledger of what comes in and what goes out
+        </p>
+      </header>
+
+      <section class="salary-block">
+        <form id="salary-form" class="inline-form">
+          <label for="salary-input">Total Salary</label>
+          <div class="field-row">
+            <span class="prefix">₹</span>
+            <input
+              type="number"
+              id="salary-input"
+              placeholder="0.00"
+              min="0"
+              step="0.01"
+              autocomplete="off"
+            />
+            <button type="submit">Set salary</button>
+          </div>
+          <p class="error" id="salary-error" hidden></p>
+        </form>
+      </section>
+
+      <div class="currency-toggle">
+        <label for="currency-select">Display currency</label>
+        <select id="currency-select">
+          <option value="INR" selected>INR (₹)</option>
+          <option value="USD">USD ($)</option>
+          <option value="EUR">EUR (€)</option>
+          <option value="GBP">GBP (£)</option>
+        </select>
+      </div>
+
+      <section class="summary">
+        <div class="summary-cell">
+          <span class="summary-label">Salary</span>
+          <span class="summary-value" id="summary-salary">₹0.00</span>
+        </div>
+        <div class="summary-cell">
+          <span class="summary-label">Expenses</span>
+          <span class="summary-value" id="summary-expenses">₹0.00</span>
+        </div>
+        <div class="summary-cell balance-cell">
+          <span class="summary-label">Remaining balance</span>
+          <span class="summary-value" id="summary-balance">₹0.00</span>
+        </div>
+      </section>
+
+      <div class="alert-banner" id="alert-banner" hidden>
+        ⚠ Balance has dropped below 10% of your salary.
+      </div>
+
+      <section class="entry-block">
+        <form id="expense-form" class="inline-form">
+          <label>Log an expense</label>
+          <div class="field-row wrap">
+            <input
+              type="text"
+              id="expense-name"
+              placeholder="Expense name"
+              autocomplete="off"
+            />
+            <span class="prefix">₹</span>
+            <input
+              type="number"
+              id="expense-amount"
+              placeholder="0.00"
+              min="0"
+              step="0.01"
+              autocomplete="off"
+            />
+            <button type="submit">Add entry</button>
+          </div>
+          <p class="error" id="expense-error" hidden></p>
+        </form>
+      </section>
+
+      <section class="ledger-body">
+        <div class="ledger-col">
+          <h2>Entries</h2>
+          <ul id="expense-list" class="expense-list">
+            <li class="empty-state" id="empty-state">
+              No expenses logged yet.
+            </li>
+          </ul>
+        </div>
+
+        <div class="ledger-col chart-col">
+          <h2>Balance vs. Expenses</h2>
+          <div class="chart-wrap">
+            <canvas id="balance-chart" width="260" height="260"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <footer class="foot-note">
+        <button type="button" id="download-report">Download Report</button>
+        <span id="footer-note"
+          >Nothing saved yet — figures persist automatically once you
+          start.</span
+        >
+      </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+    <script>
+      if (typeof Chart === "undefined") {
+        document.write(
+          '<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"><\/script>',
+        );
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+>>>>>>> 3a88e64 (update download dashboard)
