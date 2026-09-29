@@ -29,6 +29,16 @@
     </form>
   </section>
 
+  <div class="currency-toggle">
+    <label for="currency-select">Display currency</label>
+    <select id="currency-select">
+      <option value="INR" selected>INR (₹)</option>
+      <option value="USD">USD ($)</option>
+      <option value="EUR">EUR (€)</option>
+      <option value="GBP">GBP (£)</option>
+    </select>
+  </div>
+
   <section class="summary">
     <div class="summary-cell">
       <span class="summary-label">Salary</span>
@@ -78,6 +88,10 @@
   </section>
 
   <footer class="foot-note">
+    <div class="download-row">
+      <button type="button" id="download-report">Download Report</button>
+      <button type="button" id="download-chart">Download Chart</button>
+    </div>
     <span id="footer-note">Nothing saved yet — figures persist automatically once you start.</span>
   </footer>
 
@@ -89,6 +103,7 @@
     document.write('<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"><\/script>');
   }
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

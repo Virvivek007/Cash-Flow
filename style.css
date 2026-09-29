@@ -116,6 +116,27 @@ button:hover { filter: brightness(1.08); }
 .salary-block { margin-bottom: 28px; }
 .entry-block { margin: 32px 0 0; }
 
+/* Currency toggle — sits as its own row above .summary so the
+   3-column summary grid stays intact */
+.currency-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.currency-toggle label {
+  margin-bottom: 0;
+}
+.currency-toggle select {
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  padding: 8px 10px;
+}
+
 .summary {
   display: grid;
   grid-template-columns: 1fr 1fr 1.2fr;
@@ -225,4 +246,15 @@ button:hover { filter: brightness(1.08); }
   border-top: 1px solid var(--rule);
   color: var(--ink-dim);
   font-size: 0.78rem;
+}
+
+.download-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.download-row button {
+  height: 38px;
+  padding: 0 16px;
+  font-size: 0.8rem;
 }
